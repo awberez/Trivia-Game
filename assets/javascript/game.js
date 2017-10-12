@@ -1,216 +1,348 @@
 $(function(){
 
+    //trivia questions taken from: http://www.usefultrivia.com/miscellaneous_trivia/dinosaur_trivia_index.html
+
     var q0 = {
-        question: "What is the answer? 1",
+        question: 'What dinosaur name means "fast thief?"',
         answer1: {
             class: "correctAnswer",
-            content: "Correct Answer 1"
-        },
+            content: "Velociraptor"},
         answer2: {
             class: "wrongAnswer",
-            content: "Wrong Answer 1"
-        },
+            content: "Pteronodon"},
         answer3: {
             class: "wrongAnswer",
-            content: "Wrong Answer 2"
-        },
+            content: "Nanotyrannus"},
         answer4: {
             class: "wrongAnswer",
-            content: "Wrong Answer 3"
-        },
+            content: "Sinocalliopteryx"},
         value: 0
     };
 
     var q1 = {
-        question: "What is the answer? 2",
+        question: "What dinosaur was, for many years, mistakenly called a Brontosaurus?",
         answer1: {
             class: "correctAnswer",
-            content: "Correct Answer 2"
-        },
+            content: "Apatosaurus"},
         answer2: {
             class: "wrongAnswer",
-            content: "Wrong Answer 1"
-        },
+            content: "Rigidosaurus"},
         answer3: {
             class: "wrongAnswer",
-            content: "Wrong Answer 2"
-        },
+            content: "Brachiosaurus"},
         answer4: {
             class: "wrongAnswer",
-            content: "Wrong Answer 3"
-        },
+            content: "Arcanosaurus"},
         value: 1
     };
 
     var q2 = {
-        question: "What is the answer? 3",
+        question: "Which dinosaur had fifteen horns?",
         answer1: {
             class: "correctAnswer",
-            content: "Correct Answer 3"
-        },
+            content: "Kosmoceratops"},
         answer2: {
             class: "wrongAnswer",
-            content: "Wrong Answer 1"
-        },
+            content: "Pachyrhinosaurus"},
         answer3: {
             class: "wrongAnswer",
-            content: "Wrong Answer 2"
-        },
+            content: "Stryacosaurus"},
         answer4: {
             class: "wrongAnswer",
-            content: "Wrong Answer 3"
-        },
+            content: "Diabloceratops"},
         value: 2
     };
 
     var q3 = {
-        question: "What is the answer? 4",
+        question: "Which of the following dinosaurs was toothless?",
         answer1: {
             class: "correctAnswer",
-            content: "Correct Answer 4"
-        },
+            content: "Oviraptor"},
         answer2: {
             class: "wrongAnswer",
-            content: "Wrong Answer 1"
-        },
+            content: "Diplodocus"},
         answer3: {
             class: "wrongAnswer",
-            content: "Wrong Answer 2"
-        },
+            content: "Compsognathus"},
         answer4: {
             class: "wrongAnswer",
-            content: "Wrong Answer 3"
-        },
+            content: "Apatosaurus"},
         value: 3
     };
 
     var q4 = {
-        question: "What is the answer? 5",
+        question: "What close relative of the Velociraptor could grow up to 7 meters (20 feet) long and weighed almost a ton?",
         answer1: {
             class: "correctAnswer",
-            content: "Correct Answer 5"
-        },
+            content: "Utahraptor"},
         answer2: {
             class: "wrongAnswer",
-            content: "Wrong Answer 1"
-        },
+            content: "Nevadaraptor"},
         answer3: {
             class: "wrongAnswer",
-            content: "Wrong Answer 2"
-        },
+            content: "Ohioraptor"},
         answer4: {
             class: "wrongAnswer",
-            content: "Wrong Answer 3"
-        },
+            content: "Texasraptor"},
         value: 4
     };
 
     var q5 = {
-        question: "What is the answer? 6",
+        question: "What was the first dinosaur to be discovered?",
         answer1: {
             class: "correctAnswer",
-            content: "Correct Answer 6"
-        },
+            content: "Megalosaurus"},
         answer2: {
             class: "wrongAnswer",
-            content: "Wrong Answer 1"
-        },
+            content: "Brontosaurus"},
         answer3: {
             class: "wrongAnswer",
-            content: "Wrong Answer 2"
-        },
+            content: "Tyrannosaurus Rex"},
         answer4: {
             class: "wrongAnswer",
-            content: "Wrong Answer 3"
-        },
+            content: "Giganotosaurus"},
         value: 5
     };
 
     var q6 = {
-        question: "What is the answer? 7",
+        question: "What dinosaur is believed to have weighed up to 110 tons?",
         answer1: {
             class: "correctAnswer",
-            content: "Correct Answer 7"
-        },
+            content: "Argentinosaurus"},
         answer2: {
             class: "wrongAnswer",
-            content: "Wrong Answer 1"
-        },
+            content: "Perusaurus"},
         answer3: {
             class: "wrongAnswer",
-            content: "Wrong Answer 2"
-        },
+            content: "Columbiosaurus"},
         answer4: {
             class: "wrongAnswer",
-            content: "Wrong Answer 3"
-        },
+            content: "Brazilosaurus"},
         value: 6
     };
 
     var q7 = {
-        question: "What is the answer? 8",
+        question: "During what geologic period did dinosaurs first appear?",
         answer1: {
             class: "correctAnswer",
-            content: "Correct Answer 8"
-        },
+            content: "Triassic"},
         answer2: {
             class: "wrongAnswer",
-            content: "Wrong Answer 1"
-        },
+            content: "Cretaceous"},
         answer3: {
             class: "wrongAnswer",
-            content: "Wrong Answer 2"
-        },
+            content: "Cambrian"},
         answer4: {
             class: "wrongAnswer",
-            content: "Wrong Answer 3"
-        },
+            content: "Jurassic"},
         value: 7
     };
 
     var q8 = {
-        question: "What is the answer? 9",
+        question: "Which of these dinosaurs was a meat eater?",
         answer1: {
             class: "correctAnswer",
-            content: "Correct Answer 9"
-        },
+            content: "Dromaeosaurus"},
         answer2: {
             class: "wrongAnswer",
-            content: "Wrong Answer 1"
-        },
+            content: "Stegosaurus"},
         answer3: {
             class: "wrongAnswer",
-            content: "Wrong Answer 2"
-        },
+            content: "Triceratops"},
         answer4: {
             class: "wrongAnswer",
-            content: "Wrong Answer 3"
-        },
+            content: "Angulomastacator"},
         value: 8
     };
 
     var q9 = {
-        question: "What is the answer? 10",
+        question: "What is the nickname of the most complete T-rex specimen ever discovered?",
         answer1: {
             class: "correctAnswer",
-            content: "Correct Answer 10"
-        },
+            content: "Sue"},
         answer2: {
             class: "wrongAnswer",
-            content: "Wrong Answer 1"
-        },
+            content: "May"},
         answer3: {
             class: "wrongAnswer",
-            content: "Wrong Answer 2"
-        },
+            content: "Eve"},
         answer4: {
             class: "wrongAnswer",
-            content: "Wrong Answer 3"
-        },
+            content: "Ann"},
         value: 9
     };
 
-    var qArr = [q0, q1, q2, q3, q4, q5, q6, q7, q8, q9];
+    var q10 = {
+        question: "Which extinction event wiped out the dinosaurs?",
+        answer1: {
+            class: "correctAnswer",
+            content: "Cretaceous-Paleogene"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "Ordovician-Silurian"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Permian"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Triassic-Jurassic"},
+        value: 10
+    };
+
+    var q11 = {
+        question: "What is the official state dinosaur of Colorado?",
+        answer1: {
+            class: "correctAnswer",
+            content: "Stegosaurus"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "Allosaurus"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Triceratops"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Velociraptor"},
+        value: 11
+    };
+
+    var q12 = {
+        question: "What was the first non-carnivorous theropod fossil to be discovered?",
+        answer1: {
+            class: "correctAnswer",
+            content: "Therizinosaur"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "Baronyx"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Deinonychus"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Tarbosaurus"},
+        value: 12
+    };
+
+    var q13 = {
+        question: "In what country were dinosaur fossils thought to be dragon bones?",
+        answer1: {
+            class: "correctAnswer",
+            content: "China"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "South Africa"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Brazil"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Saudi Arabia"},
+        value: 13
+    };
+
+    var q14 = {
+        question: "How many wings did a Microraptor have?",
+        answer1: {
+            class: "correctAnswer",
+            content: "Four"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "Two"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Six"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Three"},
+        value: 14
+    };
+
+    var q15 = {
+        question: "Which of the following dinosaurs was the smallest?",
+        answer1: {
+            class: "correctAnswer",
+            content: "Compsognathus"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "Raptor"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Troodon"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Dilophosaurus"},
+        value: 15
+    };
+
+    var q16 = {
+        question: "What dinosaur fossil was originally mistaken for a type of bison?",
+        answer1: {
+            class: "correctAnswer",
+            content: "Triceratops"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "Buffalosaurus"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Allosaurus"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Stegosaurus"},
+        value: 16
+    };
+
+    var q17 = {
+        question: "What were the direct ancestors of the dinosaurs?",
+        answer1: {
+            class: "correctAnswer",
+            content: "Archosaurs"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "Eukaryotes"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Sapheosaurs"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Silesaurs"},
+        value: 17
+    };
+
+    var q18 = {
+        question: "What was the lifespan of a T. rex?",
+        answer1: {
+            class: "correctAnswer",
+            content: "20-30 years"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "100-120 years"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "10-15 years"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "50-60 years"},
+        value: 18
+    };
+
+    var q19 = {
+        question: "Which dinosaur had the smallest brain for its body size?",
+        answer1: {
+            class: "correctAnswer",
+            content: "Stegosaurus"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "Tyrannosaurus rex"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Triceratops"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Brachiosaurus"},
+        value: 19
+    };
+
+    var qArr = [q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19];
     var aArr =  [1, 2, 3, 4];
     var divArr;
     var randArr;
@@ -247,7 +379,7 @@ $(function(){
             $(qDiv).attr("id", "qDiv");
             $(qDiv).attr("class", "panel panel-primary");
             $(qDiv).attr("value", qArr[randArr[i]].value);
-            $(qDiv).append('<div class="question panel-heading text-center"><h2>' + qArr[randArr[i]].question + '</h2></div>');
+            $(qDiv).append('<div class="question panel-heading"><h2>' + qArr[randArr[i]].question + '</h2></div>');
             for (k = 0; k < aArr.length; k++) {
             $(qDiv).append('<div class="' + eval("qArr[randArr[i]].answer" + aArr[k] + ".class") + ' panel-body answer" ><h3>' + eval("qArr[randArr[i]].answer" + aArr[k] + ".content") + '</h3></div>');
             }
@@ -284,10 +416,7 @@ $(function(){
         var restartBtn = $("<button>");
         $(restartBtn).addClass("btn btn-lg btn-success restart-button");
         $(restartBtn).html("REPLAY?");
-        var restartDiv = $("<div>");
-        $(restartDiv).attr("class", "panel-body");
-        $(restartDiv).append(restartBtn);
-        $("#stats").append(restartDiv);
+        $("#stats").append(restartBtn);
     }
 
     function countDown() {
@@ -334,29 +463,29 @@ $(function(){
     function userStats() {
         var statsDiv = $("<div>");
         $(statsDiv).attr("id", "stats");
-        $(statsDiv).attr("class", "panel text-center");
+        $(statsDiv).attr("class", "panel");
         if (correctState == true) {
-            $(statsDiv).attr("class", "panel panel-success text-center");
+            $(statsDiv).attr("class", "panel panel-success");
             $(statsDiv).append('<div class="panel-heading"><h2>Correct!<h2></div>');
         }
         else if (wrongState == true) {
-            $(statsDiv).attr("class", "panel panel-danger text-center");
+            $(statsDiv).attr("class", "panel panel-danger");
             $(statsDiv).append('<div class="panel-heading"><h2>Wrong!<h2></div>');
-            $(statsDiv).append('<div class="panel-body">Correct Answer: <span class="statsVar answerReveal">' + eval("q" + divArr[qCount].attr("value") + ".answer1.content") + '</span></div>');
+            $(statsDiv).append('<div class="panel-body">Correct Answer:<br><span class="statsVar answerReveal">' + eval("q" + divArr[qCount].attr("value") + ".answer1.content") + '</span></div>');
         }
         else {
-            $(statsDiv).attr("class", "panel panel-warning text-center");
+            $(statsDiv).attr("class", "panel panel-warning");
             $(statsDiv).append('<div class="panel-heading"><h2>Missed!</h2></div>');
-            $(statsDiv).append('<div class="panel-body">Correct Answer: <span class="statsVar answerReveal">' + eval("q" + divArr[qCount].attr("value") + ".answer1.content") + '</span></div>');
+            $(statsDiv).append('<div class="panel-body">Correct Answer:<br><span class="statsVar answerReveal">' + eval("q" + divArr[qCount].attr("value") + ".answer1.content") + '</span></div>');
         }
         if (qCount == 0) {
             setTimeout(function(){
                 $("#stats").empty().css("display", "none");
                 $("#stats").removeClass("panel-success").removeClass("panel-danger").removeClass("panel-warning").addClass("panel-info");
                 $("#stats").append('<div class="panel-heading"><h2>Final Score:<h2></div>');
-                $("#stats").append('<div class="panel-body">Correct: <span class="label label-success statsVar">' + userCorrect + '</span></div>');
-                $("#stats").append('<div class="panel-body">Wrong: <span class="label label-danger statsVar">' + userWrong + '</span></div>');
-                $("#stats").append('<div class="panel-body">Missed: <span class="label label-warning statsVar">' + userMissed + '</span></div>');
+                $("#stats").append('<div class="panel-body statsCorrect">Correct: <span class="statsVar">' + userCorrect + '</span></div>');
+                $("#stats").append('<div class="panel-body statsWrong">Wrong: <span class="statsVar">' + userWrong + '</span></div>');
+                $("#stats").append('<div class="panel-body statsMissed">Missed: <span class="statsVar">' + userMissed + '</span></div>');
                 restartButton();
                 $("#stats").fadeIn("slow");
                 }, 1000 * 3);   
@@ -386,33 +515,3 @@ $(function(){
     });
   
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
