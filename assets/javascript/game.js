@@ -212,43 +212,80 @@ $(function(){
 
     var qArr = [q0, q1, q2, q3, q4, q5, q6, q7, q8, q9];
     var aArr =  [1, 2, 3, 4];
-    var divArr = [];
+    var divArr;
     var randArr;
 
-    var qCount = 9;
+    var qCount;
     var time = 30;
     var timeActual;
     var intervalId;
 
-    var userCorrect = 0;
-    var correctState = false;
-    var userWrong = 0;
-    var wrongState = false;
-    var userMissed = 0;
+    var userCorrect;
+    var correctState;
+    var userWrong;
+    var wrongState;
+    var userMissed;
+
+    function arrRandomize(arr) {
+        var n = arr.length;
+        var tempArr = [];
+        for (j = 0; j < n-1; j++) {
+            tempArr.push(arr.splice(Math.floor(Math.random()*arr.length),1)[0]);
+        }
+        tempArr.push(arr[0]);
+        return tempArr;
+    }
 
     function qCreate() {
-        randArr = [];
-        for (i=0; i<qArr.length; i++) {
+        for (i = 0; i < qArr.length; i++) {
             randArr.push(i);
         }
-        randArr.sort(function(){return 0.5 - Math.random()});
-        for (i=0; i<randArr.length; i++) {
-            aArr.sort(function(){return 0.5 - Math.random()});
+        randArr = arrRandomize(randArr);
+        for (i = 0; i < randArr.length; i++) {
+            aArr = arrRandomize(aArr);
             var qDiv = $("<div>");
+            $(qDiv).attr("id", "qDiv");
+            $(qDiv).attr("class", "panel panel-primary");
             $(qDiv).attr("value", qArr[randArr[i]].value);
-            $(qDiv).append('<div class="question text-center"><h2>' + qArr[randArr[i]].question + '</h2></div>');
-            for (j=0; j<aArr.length; j++) {
-            $(qDiv).append('<div class="' + eval("qArr[randArr[i]].answer" + aArr[j] + ".class") + ' answer" ><h3>' + eval("qArr[randArr[i]].answer" + aArr[j] + ".content") + '</h3></div>');
+            $(qDiv).append('<div class="question panel-heading text-center"><h2>' + qArr[randArr[i]].question + '</h2></div>');
+            for (k = 0; k < aArr.length; k++) {
+            $(qDiv).append('<div class="' + eval("qArr[randArr[i]].answer" + aArr[k] + ".class") + ' panel-body answer" ><h3>' + eval("qArr[randArr[i]].answer" + aArr[k] + ".content") + '</h3></div>');
             }
             divArr.push(qDiv);
         }
     }
 
     function startGame() {
+        divArr = [];
+        randArr = [];
+        qCount = 9;
+        userCorrect = 0;
+        correctState = false;
+        userWrong = 0;
+        wrongState = false;
+        userMissed = 0;
+        qCreate();
+        timeActual = time;
+        $("#qTime").html('<div class="progress"><div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div></div>');
+        intervalId = setInterval(countDown, 1000);
+        $("#qDisplay").html(divArr[qCount]).css("display", "none").fadeIn("slow");
+    }
+
+    function startButton() {
         var startBtn = $("<button>");
         $(startBtn).addClass("btn btn-lg start-button");
         $(startBtn).html("Start");
         $("#qTime").append(startBtn);
+    }
+
+    function restartButton() {
+        var restartBtn = $("<button>");
+        $(restartBtn).addClass("btn btn-lg restart-button");
+        $(restartBtn).html("Play Again?");
+        var restartDiv = $("<div>");
+        $(restartDiv).attr("class", "panel-body");
+        $(restartDiv).append(restartBtn);
+        $("#stats").append(restartDiv);
     }
 
     function countDown() {
@@ -257,7 +294,7 @@ $(function(){
         if (timeActual / time * 100 <= 33.34) {
             $(".progress-bar").removeClass('progress-bar-warning').addClass('progress-bar-danger');
         }
-        else if (timeActual / time * 100 <= 66.65) {
+        else if (timeActual / time * 100 <= 66.67) {
             $(".progress-bar").removeClass('progress-bar-success').addClass('progress-bar-warning');
         }
         if (timeActual == 0) {
@@ -269,11 +306,9 @@ $(function(){
     function qTransition() {
         clearInterval(intervalId);
         $(".progress-bar").css("width", "100%");
-        $(".progress-bar").removeClass('progress-bar-success').removeClass('progress-bar-info').removeClass('progress-bar-warning').removeClass('progress-bar-danger').addClass('progress-bar-primary');
+        $(".progress-bar").removeClass('progress-bar-success').removeClass('progress-bar-warning').removeClass('progress-bar-danger').addClass('progress-bar-primary');
         if (qCount == 0) {
-            $("#qDisplay").html('<div class="stats"><h1>Final Score:</h1></div>');
             userStats();
-            $(".remaining").remove();
         }
         else {
             userStats();
@@ -286,7 +321,7 @@ $(function(){
                     wrongState = false;
                     qCount--;
                     $(".progress-bar").removeClass('progress-bar-primary').addClass('progress-bar-success');
-                    $("#qDisplay").html(divArr[qCount]);
+                    $("#qDisplay").html(divArr[qCount]).css("display", "none").fadeIn("slow");
                     timeActual = time;                 
                     intervalId = setInterval(countDown, 1000);
                 }
@@ -296,35 +331,46 @@ $(function(){
 
     function userStats() {
         var statsDiv = $("<div>");
-        $(statsDiv).attr("class", "stats text-center")
+        $(statsDiv).attr("id", "stats");
+        $(statsDiv).attr("class", "panel text-center");
         if (correctState == true) {
-            $(statsDiv).append('<div class="correct">Correct!</div>');
+            $(statsDiv).attr("class", "panel panel-success text-center");
+            $(statsDiv).append('<div class="panel-heading"><h2>Correct!<h2></div>');
         }
         else if (wrongState == true) {
-            $(statsDiv).append('<div class="wrong">Wrong!</div>');
-            $(statsDiv).append('<div>Correct Answer: <span class="statsVar answerReveal">' + eval("q" + divArr[qCount].attr("value") + ".answer1.content") + '</span></div>');
+            $(statsDiv).attr("class", "panel panel-danger text-center");
+            $(statsDiv).append('<div class="panel-heading"><h2>Wrong!<h2></div>');
+            $(statsDiv).append('<div class="panel-body">Correct Answer: <span class="statsVar answerReveal">' + eval("q" + divArr[qCount].attr("value") + ".answer1.content") + '</span></div>');
         }
         else {
-            $(statsDiv).append('<div class="wrong">Missed!</div>');
-            $(statsDiv).append('<div>Correct Answer: <span class="statsVar answerReveal">' + eval("q" + divArr[qCount].attr("value") + ".answer1.content") + '</span></div>');
+            $(statsDiv).attr("class", "panel panel-warning text-center");
+            $(statsDiv).append('<div class="panel-heading"><h2>Missed!</h2></div>');
+            $(statsDiv).append('<div class="panel-body">Correct Answer: <span class="statsVar answerReveal">' + eval("q" + divArr[qCount].attr("value") + ".answer1.content") + '</span></div>');
         }
-        $(statsDiv).append('<div>Correct: <span class="statsVar">' + userCorrect + '</span></div>');
-        $(statsDiv).append('<div>Wrong: <span class="statsVar">' + userWrong + '</span></div>');
-        $(statsDiv).append('<div>Missed: <span class="statsVar">' + userMissed + '</span></div>');
-        $(statsDiv).append('<div class="remaining">Questions Remaining: <span class="statsVar">' + qCount + '</span></div>');
-        $("#qDisplay").html(statsDiv);
+        if (qCount == 0) {
+            setTimeout(function(){
+                $("#stats").empty().css("display", "none");
+                $("#stats").removeClass("panel-success").removeClass("panel-danger").removeClass("panel-warning").addClass("panel-info");
+                $("#stats").append('<div class="panel-heading"><h2>Final Score:<h2></div>');
+                $("#stats").append('<div class="panel-body">Correct: <span class="statsVar">' + userCorrect + '</span></div>');
+                $("#stats").append('<div class="panel-body">Wrong: <span class="statsVar">' + userWrong + '</span></div>');
+                $("#stats").append('<div class="panel-body">Missed: <span class="statsVar">' + userMissed + '</span></div>');
+                restartButton();
+                $("#stats").fadeIn("slow");
+                }, 3000);   
+        }
+        else {
+            $(statsDiv).append('<div class="panel-body">Questions Remaining: <span class="statsVar">' + qCount + '</span></div>');
+        }
+        $("#qDisplay").html(statsDiv).css("display", "none").fadeIn("slow");
     }
 
-    qCreate();
-    startGame();
+    startButton();
 
-    $(document).on("click", ".start-button", function () {
-        timeActual = time;
-        $("#qTime").html('<div class="progress"><div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div></div>');
-        intervalId = setInterval(countDown, 1000);
-        $("#qDisplay").html(divArr[qCount]);
+    $(document).on("click", ".btn", function () {
+        startGame();
     });
-
+    
     $(document).on("click", ".correctAnswer", function () {
         correctState = true;
         userCorrect++;
