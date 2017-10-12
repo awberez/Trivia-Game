@@ -446,7 +446,7 @@ $(function(){
         }
         else {
             userStats();
-            timeActual = 1;
+            timeActual = 3;
             intervalId = setInterval(function() {
                 timeActual--;
                 if (timeActual == 0) {
