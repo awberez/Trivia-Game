@@ -1,5 +1,18 @@
+body {
+	background-color: gray;
+}
+
 button:focus { 
     outline: 0 !important; 
+}
+
+.background {
+	position: fixed;
+	background-color: white;
+	height: 100vh;
+	width: 75vw;
+ 	margin-left: -37.5vw;
+ 	left: 50%;
 }
 
 .wrongAnswer, .wrong {
@@ -8,6 +21,15 @@ button:focus {
 
 .correctAnswer, .correct {
 	color: green;
+}
+
+.wrong, .correct {
+	font-size: 30px;
+	line-height: 50px;
+}
+
+.question {
+	margin-bottom: 20px;
 }
 
 .answer {
@@ -19,6 +41,36 @@ button:focus {
 	background-color: black;
 }
 
-.stats {
-	margin-left: 25%;
+.progress {
+	margin: 20px;
 }
+
+.stats {
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 30px;
+}
+
+.statsVar {
+	font-weight: normal;
+}
+
+.answerReveal {
+	font-style: italic;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
