@@ -1,0 +1,24 @@
+button:focus { 
+    outline: 0 !important; 
+}
+
+.wrongAnswer, .wrong {
+	color: red;
+}
+
+.correctAnswer, .correct {
+	color: green;
+}
+
+.answer {
+	line-height: 45px;
+	padding: 0px 50px 0px 5px;
+	border: 1px solid #f2d224;
+	padding: 10px;
+	margin: 10px;
+	background-color: black;
+}
+
+.stats {
+	margin-left: 25%;
+}
