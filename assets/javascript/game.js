@@ -357,6 +357,8 @@ $(function(){
     var userWrong;
     var wrongState;
     var userMissed;
+    var highScore = 0;
+    var newScore = false;
 
     function arrRandomize(arr) {
         var n = arr.length;
@@ -397,6 +399,7 @@ $(function(){
         userWrong = 0;
         wrongState = false;
         userMissed = 0;
+        newScore = false;
         qCreate();
         $(".progress-bar").removeClass('progress-bar-primary').addClass('progress-bar-success');
         timeActual = time;
@@ -443,7 +446,7 @@ $(function(){
         }
         else {
             userStats();
-            timeActual = 3;
+            timeActual = 1;
             intervalId = setInterval(function() {
                 timeActual--;
                 if (timeActual == 0) {
@@ -486,6 +489,14 @@ $(function(){
                 $("#stats").append('<div class="panel-body statsCorrect">Correct: <span class="statsVar">' + userCorrect + '</span></div>');
                 $("#stats").append('<div class="panel-body statsWrong">Wrong: <span class="statsVar">' + userWrong + '</span></div>');
                 $("#stats").append('<div class="panel-body statsMissed">Missed: <span class="statsVar">' + userMissed + '</span></div>');
+                if (highScore < userCorrect) {
+                    highScore = userCorrect;
+                    newScore = true;
+                }
+                $("#stats").append('<div class="panel-body statsScore">High Score: <span class="statsVar">' + highScore + '</span></div>');
+                if (newScore == true) {
+                    $(".statsScore").prepend('NEW ');
+                }
                 restartButton();
                 $("#stats").fadeIn("slow");
                 }, 1000 * 3);   
