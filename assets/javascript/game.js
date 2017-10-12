@@ -256,6 +256,7 @@ $(function(){
     }
 
     function startGame() {
+        $("#qStart").empty();
         divArr = [];
         randArr = [];
         qCount = 9;
@@ -265,23 +266,24 @@ $(function(){
         wrongState = false;
         userMissed = 0;
         qCreate();
+        $(".progress-bar").removeClass('progress-bar-primary').addClass('progress-bar-success');
         timeActual = time;
-        $("#qTime").html('<div class="progress"><div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div></div>');
         intervalId = setInterval(countDown, 1000);
         $("#qDisplay").html(divArr[qCount]).css("display", "none").fadeIn("slow");
     }
 
     function startButton() {
+        $("#qTime").html('<div class="progress"><div class="progress-bar progress-bar-primary" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div></div>');
         var startBtn = $("<button>");
-        $(startBtn).addClass("btn btn-lg start-button");
-        $(startBtn).html("Start");
-        $("#qTime").append(startBtn);
+        $(startBtn).addClass("btn btn-lg btn-success start-button");
+        $(startBtn).html("START");
+        $("#qStart").append(startBtn);
     }
 
     function restartButton() {
         var restartBtn = $("<button>");
-        $(restartBtn).addClass("btn btn-lg restart-button");
-        $(restartBtn).html("Play Again?");
+        $(restartBtn).addClass("btn btn-lg btn-success restart-button");
+        $(restartBtn).html("REPLAY?");
         var restartDiv = $("<div>");
         $(restartDiv).attr("class", "panel-body");
         $(restartDiv).append(restartBtn);
@@ -352,12 +354,12 @@ $(function(){
                 $("#stats").empty().css("display", "none");
                 $("#stats").removeClass("panel-success").removeClass("panel-danger").removeClass("panel-warning").addClass("panel-info");
                 $("#stats").append('<div class="panel-heading"><h2>Final Score:<h2></div>');
-                $("#stats").append('<div class="panel-body">Correct: <span class="statsVar">' + userCorrect + '</span></div>');
-                $("#stats").append('<div class="panel-body">Wrong: <span class="statsVar">' + userWrong + '</span></div>');
-                $("#stats").append('<div class="panel-body">Missed: <span class="statsVar">' + userMissed + '</span></div>');
+                $("#stats").append('<div class="panel-body">Correct: <span class="label label-success statsVar">' + userCorrect + '</span></div>');
+                $("#stats").append('<div class="panel-body">Wrong: <span class="label label-danger statsVar">' + userWrong + '</span></div>');
+                $("#stats").append('<div class="panel-body">Missed: <span class="label label-warning statsVar">' + userMissed + '</span></div>');
                 restartButton();
                 $("#stats").fadeIn("slow");
-                }, 3000);   
+                }, 1000 * 3);   
         }
         else {
             $(statsDiv).append('<div class="panel-body">Questions Remaining: <span class="statsVar">' + qCount + '</span></div>');
@@ -370,7 +372,7 @@ $(function(){
     $(document).on("click", ".btn", function () {
         startGame();
     });
-    
+
     $(document).on("click", ".correctAnswer", function () {
         correctState = true;
         userCorrect++;
