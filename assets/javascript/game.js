@@ -404,7 +404,7 @@ $(function(){
         $(".progress-bar").removeClass('progress-bar-primary').addClass('progress-bar-success');
         timeActual = time;
         intervalId = setInterval(countDown, 1000);
-        $("#qDisplay").html(divArr[qCount]).css("display", "none").fadeIn("slow");
+        $("#qDisplay").html(divArr[qCount]).css("display", "none").fadeIn("fast");
     }
 
     function startButton() {
@@ -455,7 +455,7 @@ $(function(){
                     wrongState = false;
                     qCount--;
                     $(".progress-bar").removeClass('progress-bar-primary').addClass('progress-bar-success');
-                    $("#qDisplay").html(divArr[qCount]).css("display", "none").fadeIn("slow");
+                    $("#qDisplay").html(divArr[qCount]).css("display", "none").fadeIn("fast");
                     timeActual = time;                 
                     intervalId = setInterval(countDown, 1000);
                 }
@@ -498,13 +498,13 @@ $(function(){
                     $(".statsScore").prepend('NEW ');
                 }
                 restartButton();
-                $("#stats").fadeIn("slow");
+                $("#stats").fadeIn("fast");
                 }, 1000 * 3);   
         }
         else {
             $(statsDiv).append('<div class="panel-body">Questions Remaining: <span class="statsVar">' + qCount + '</span></div>');
         }
-        $("#qDisplay").html(statsDiv).css("display", "none").fadeIn("slow");
+        $("#qDisplay").html(statsDiv).css("display", "none").fadeIn("fast");
     }
 
     startButton();
