@@ -1,9 +1,14 @@
 body {
-	background-image: url(../images/trex.jpg);  /* taken from: https://answersingenesis.org/dinosaurs/free-desktop-dinosaur-wallpaper/ */
-	background-size: 100vw 100vh;
-	background-position: top 0px right 0px;
-	background-repeat: no-repeat;
 	font-family: 'Trade Winds', cursive;
+}
+
+#backgroundImage {
+	min-height: 100vh;
+	min-width: 100vw;
+	width: 100%;
+	position: fixed;
+	position: top 0px right 0px;
+	z-index: -1;
 }
 
 button:focus { 
