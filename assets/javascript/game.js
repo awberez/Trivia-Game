@@ -246,10 +246,8 @@ $(function(){
         for (i = 0; i < randArr.length; i++) {
             aArr = arrRandomize(aArr);
             var qDiv = $("<div>");
-            $(qDiv).attr("id", "qDiv");
-            $(qDiv).attr("class", "panel panel-primary");
-            $(qDiv).attr("value", qArr[randArr[i]].value);
-            $(qDiv).append('<div class="question panel-heading"><h2>' + qArr[randArr[i]].question + '</h2></div>');
+            $(qDiv).attr("id", "qDiv").attr("class", "panel panel-primary").attr("value", qArr[randArr[i]].value)
+                .append('<div class="question panel-heading"><h2>' + qArr[randArr[i]].question + '</h2></div>');
             for (k = 0; k < aArr.length; k++) {
             $(qDiv).append('<div class="' + qArr[randArr[i]][aArr[k]].class + ' panel-body answer" ><h3>' + qArr[randArr[i]][aArr[k]].content + '</h3></div>');
             }
@@ -278,15 +276,13 @@ $(function(){
     function startButton() {
         $("#qTime").html('<div class="progress"><div class="progress-bar progress-bar-primary" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div></div>');
         var startBtn = $("<button>");
-        $(startBtn).addClass("btn btn-lg btn-success start-button");
-        $(startBtn).html("START");
+        $(startBtn).addClass("btn btn-lg btn-success start-button").html("START");
         $("#qStart").append(startBtn);
     }
 
     function restartButton() {
         var restartBtn = $("<button>");
-        $(restartBtn).addClass("btn btn-lg btn-success restart-button");
-        $(restartBtn).html("REPLAY?");
+        $(restartBtn).addClass("btn btn-lg btn-success restart-button").html("REPLAY?");
         $("#stats").append(restartBtn);
     }
 
@@ -308,8 +304,7 @@ $(function(){
 
     function qTransition() {
         clearInterval(intervalId);
-        $(".progress-bar").css("width", "100%");
-        $(".progress-bar").removeClass('progress-bar-success').removeClass('progress-bar-warning').removeClass('progress-bar-danger').addClass('progress-bar-primary');
+        $(".progress-bar").css("width", "100%").removeClass('progress-bar-success').removeClass('progress-bar-warning').removeClass('progress-bar-danger').addClass('progress-bar-primary');
         if (qCount == 0) {
             userStats();
         }
@@ -334,30 +329,25 @@ $(function(){
 
     function userStats() {
         var statsDiv = $("<div>");
-        $(statsDiv).attr("id", "stats");
-        $(statsDiv).attr("class", "panel");
+        $(statsDiv).attr("id", "stats").attr("class", "panel");
         if (correctState == true) {
-            $(statsDiv).attr("class", "panel panel-success");
-            $(statsDiv).append('<div class="panel-heading"><h2>Correct!<h2></div>');
+            $(statsDiv).attr("class", "panel panel-success").append('<div class="panel-heading"><h2>Correct!<h2></div>');
         }
         else if (wrongState == true) {
-            $(statsDiv).attr("class", "panel panel-danger");
-            $(statsDiv).append('<div class="panel-heading"><h2>Wrong!<h2></div>');
-            $(statsDiv).append('<div class="panel-body">Correct Answer:<br><span class="statsVar answerReveal">' + qArr[divArr[qCount].attr("value")].answer1.content + '</span></div>');
+            $(statsDiv).attr("class", "panel panel-danger").append('<div class="panel-heading"><h2>Wrong!<h2></div>')
+                .append('<div class="panel-body">Correct Answer:<br><span class="statsVar answerReveal">' + qArr[divArr[qCount].attr("value")].answer1.content + '</span></div>');
         }
         else {
-            $(statsDiv).attr("class", "panel panel-warning");
-            $(statsDiv).append('<div class="panel-heading"><h2>Missed!</h2></div>');
-            $(statsDiv).append('<div class="panel-body">Correct Answer:<br><span class="statsVar answerReveal">' + qArr[divArr[qCount].attr("value")].answer1.content + '</span></div>');
+            $(statsDiv).attr("class", "panel panel-warning").append('<div class="panel-heading"><h2>Missed!</h2></div>')
+                .append('<div class="panel-body">Correct Answer:<br><span class="statsVar answerReveal">' + qArr[divArr[qCount].attr("value")].answer1.content + '</span></div>');
         }
         if (qCount == 0) {
             setTimeout(function(){
-                $("#stats").empty().css("display", "none");
-                $("#stats").removeClass("panel-success").removeClass("panel-danger").removeClass("panel-warning").addClass("panel-info");
-                $("#stats").append('<div class="panel-heading"><h2>Final Score:<h2></div>');
-                $("#stats").append('<div class="panel-body statsCorrect">Correct: <span class="statsVar">' + userCorrect + '</span></div>');
-                $("#stats").append('<div class="panel-body statsWrong">Wrong: <span class="statsVar">' + userWrong + '</span></div>');
-                $("#stats").append('<div class="panel-body statsMissed">Missed: <span class="statsVar">' + userMissed + '</span></div>');
+                $("#stats").empty().css("display", "none").removeClass("panel-success").removeClass("panel-danger").removeClass("panel-warning").addClass("panel-info")
+                    .append('<div class="panel-heading"><h2>Final Score:<h2></div>')
+                    .append('<div class="panel-body statsCorrect">Correct: <span class="statsVar">' + userCorrect + '</span></div>')
+                    .append('<div class="panel-body statsWrong">Wrong: <span class="statsVar">' + userWrong + '</span></div>')
+                    .append('<div class="panel-body statsMissed">Missed: <span class="statsVar">' + userMissed + '</span></div>');
                 if (highScore < userCorrect) {
                     highScore = userCorrect;
                     newHigh = true;
