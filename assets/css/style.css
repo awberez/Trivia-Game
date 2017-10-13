@@ -40,18 +40,22 @@ button:focus {
 
 .progress-bar-primary {
 	background-color: rgba(39, 58, 206, 0.6);
+	transition: .5s ease;
 }
 
 .progress-bar-success {
 	background-color: rgba(41, 206, 39, 0.6);
+	transition: .5s ease;
 }
 
 .progress-bar-warning {
 	background-color: rgba(255, 215, 0, 0.6);
+	transition: .5s ease;
 }
 
 .progress-bar-danger {
 	background-color: rgba(206, 55, 39, 0.6);
+	transition: .5s ease;
 }
 
 #stats {
