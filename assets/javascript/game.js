@@ -358,7 +358,7 @@ $(function(){
     var wrongState;
     var userMissed;
     var highScore = 0;
-    var newScore = false;
+    var newScore;
 
     function arrRandomize(arr) {
         var n = arr.length;

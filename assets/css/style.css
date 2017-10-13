@@ -18,11 +18,12 @@ button:focus {
 	background-image: linear-gradient(rgba(94, 94, 94, 0.6), rgba(94, 94, 94, 0.6)), url(../images/texture.jpg);
 	color: gold;
 	width: 60%;
+	transition: .3s ease;
 }
 
 .answer:hover {
 	border: 3px outset gold;
-	background-image: linear-gradient(rgba(94, 94, 94, 0.1), rgba(94, 94, 94, 0.1)), url(../images/texture.jpg);
+	background-image: linear-gradient(rgba(94, 94, 94, 0.3), rgba(94, 94, 94, 0.3)), url(../images/texture.jpg);
 }
 
 .progress {
