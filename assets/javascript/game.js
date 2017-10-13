@@ -228,6 +228,19 @@ $(function(){
     var highScore = 0;
     var newHigh;
 
+    function startButton() {
+        $("#qTime").html('<div class="progress"><div class="progress-bar progress-bar-primary" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div></div>');
+        var startBtn = $("<button>");
+        $(startBtn).addClass("btn btn-lg btn-success").html("START");
+        $("#qStart").append(startBtn);
+    }
+
+    function restartButton() {
+        var restartBtn = $("<button>");
+        $(restartBtn).addClass("btn btn-lg btn-success").html("REPLAY?");
+        $("#stats").append(restartBtn);
+    }
+
     function arrRandomize(arr) {
         var n = arr.length;
         var tempArr = [];
@@ -271,19 +284,6 @@ $(function(){
         timeActual = time;
         intervalId = setInterval(countDown, 1000);
         $("#qDisplay").html(divArr[qCount]).css("display", "none").fadeIn("fast");
-    }
-
-    function startButton() {
-        $("#qTime").html('<div class="progress"><div class="progress-bar progress-bar-primary" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div></div>');
-        var startBtn = $("<button>");
-        $(startBtn).addClass("btn btn-lg btn-success start-button").html("START");
-        $("#qStart").append(startBtn);
-    }
-
-    function restartButton() {
-        var restartBtn = $("<button>");
-        $(restartBtn).addClass("btn btn-lg btn-success restart-button").html("REPLAY?");
-        $("#stats").append(restartBtn);
     }
 
     function countDown() {
