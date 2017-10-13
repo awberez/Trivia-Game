@@ -342,7 +342,177 @@ $(function(){
         value: 19
     };
 
-    var qArr = [q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19];
+    var q20 = {
+        question: "The meteor that many scientists believe killed the dinosaurs struck in what modern-day country?",
+        answer1: {
+            class: "correctAnswer",
+            content: "Mexico"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "Australia"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "United States"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "South Africa"},
+        value: 20
+    };
+
+    var q21 = {
+        question: 'What dinosaur name means "covered lizard?"',
+        answer1: {
+            class: "correctAnswer",
+            content: "Stegosaurus"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "Triceratops"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Dimetrodon"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Ankylosaurus"},
+        value: 21
+    };
+
+    var q22 = {
+        question: "How many claws did a Velociraptor have on each hand?",
+        answer1: {
+            class: "correctAnswer",
+            content: "Three"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "One"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Four"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Two"},
+        value: 22
+    };
+
+    var q23 = {
+        question: 'What does "dinosaur" mean?',
+        answer1: {
+            class: "correctAnswer",
+            content: "Terrible Lizard"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "Hungry Lizard"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Killer Lizard"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Evil Lizard"},
+        value: 23
+    };
+
+    var q24 = {
+        question: "At the beginning of the Triassic period, how many continents were there?",
+        answer1: {
+            class: "correctAnswer",
+            content: "One"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "Three"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Seven"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Two"},
+        value: 24
+    };
+
+    var q25 = {
+        question: "How are the two groups of dinosaurs differentiated?",
+        answer1: {
+            class: "correctAnswer",
+            content: "Hip Bones"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "Eating Habits"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Number of Claws"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Method of Reproduction"},
+        value: 25
+    };
+
+    var q26 = {
+        question: "How many fossils are necessary to identify a new dinosaur species?",
+        answer1: {
+            class: "correctAnswer",
+            content: "One"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "Five"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Two"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Seven"},
+        value: 26
+    };
+
+    var q27 = {
+        question: "Who discovered the first fossilized dinosaur eggs?",
+        answer1: {
+            class: "correctAnswer",
+            content: "Jean-Jacques Poech"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "Mary Anning"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Gideon Mantell"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Roy Chapman Andrews"},
+        value: 27
+    };
+
+    var q28 = {
+        question: "Which continents have dinosaur fossils been found on?",
+        answer1: {
+            class: "correctAnswer",
+            content: "All Seven Continents"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "North America & South America"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Asia, Europe, & Africa"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Africa, North America, & Asia"},
+        value: 28
+    };
+
+    var q29 = {
+        question: "Where were the oldest dinosaur fossils in Canada found?",
+        answer1: {
+            class: "correctAnswer",
+            content: "Nova Scotia"},
+        answer2: {
+            class: "wrongAnswer",
+            content: "Yukon"},
+        answer3: {
+            class: "wrongAnswer",
+            content: "Saskatchewan"},
+        answer4: {
+            class: "wrongAnswer",
+            content: "Alberta"},
+        value: 29
+    };
+
+    var qArr = [q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25, q26, q27, q28, q29];
     var aArr =  [1, 2, 3, 4];
     var divArr;
     var randArr;
@@ -390,7 +560,7 @@ $(function(){
     }
 
     function startGame() {
-        $("#qStart").empty();
+        $("#qStart").remove();
         divArr = [];
         randArr = [];
         qCount = 9;
@@ -496,6 +666,9 @@ $(function(){
                 $("#stats").append('<div class="panel-body statsScore">High Score: <span class="statsVar">' + highScore + '</span></div>');
                 if (newScore == true) {
                     $(".statsScore").prepend('NEW ');
+                    if (highScore == 10) {
+                        $(".statsScore").append(' <i class="fa fa-trophy" aria-hidden="true"></i>');
+                    }
                 }
                 restartButton();
                 $("#stats").fadeIn("fast");

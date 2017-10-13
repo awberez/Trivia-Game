@@ -147,9 +147,9 @@ button:focus {
 
 .panel-info .panel-heading {
 	margin-top: 10px;
-	color: #004166 !important;
-	border-color: rgba(157, 216, 249, 1) !important;
-	background-image: linear-gradient(rgba(157, 216, 249, 0.6), rgba(157, 216, 249, 0.6)), url(../images/texture.jpg) !important
+	color: #004166;
+	border-color: rgba(157, 216, 249, 1);
+	background-image: linear-gradient(rgba(157, 216, 249, 0.6), rgba(157, 216, 249, 0.6)), url(../images/texture.jpg);
 }
 
 .btn {
