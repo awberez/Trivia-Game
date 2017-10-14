@@ -1,6 +1,6 @@
 $(function(){
     
-    qArr = [
+    var qArr = [
     
         {question: 'What dinosaur name means "fast thief?"',
         answer1: "Velociraptor", answer2: "Pteronodon", answer3: "Nanotyrannus", answer4: "Sinocalliopteryx"},
@@ -92,19 +92,19 @@ $(function(){
         {question: "Where were the oldest dinosaur fossils in Canada found?",
         answer1: "Nova Scotia", answer2: "Yukon", answer3: "Saskatchewan", answer4: "Alberta"},
 
-    ]; //trivia questions taken from: http://www.usefultrivia.com/miscellaneous_trivia/dinosaur_trivia_index.html
+    ], //trivia questions taken from: http://www.usefultrivia.com/miscellaneous_trivia/dinosaur_trivia_index.html
 
-    aArr =  ["answer1", "answer2", "answer3", "answer4"], time = 30, highScore = 0;
-    var divArr, qCount, timeActual, intervalId, userCorrect, userWrong, correctState, wrongState, userMissed;
+    aArr = ["answer1", "answer2", "answer3", "answer4"], time = 30, highScore = 0,
+    divArr, qCount, timeActual, intervalId, userCorrect, userWrong, correctState, wrongState, userMissed;
     
     function startButton(text, where) {
-        btn = $("<button>");
+        var btn = $("<button>");
         btn.addClass("btn btn-lg btn-success").html(text);
         $(where).append(btn);
     }
 
     function arrRandomize(arr) {
-        n = arr.length - 1, tempArr = [];
+        let n = arr.length - 1, tempArr = [];
         for (let i = 0; i < n; i++) {
             tempArr.push(arr.splice(~~(Math.random()*arr.length),1)[0]);
         }
@@ -115,7 +115,8 @@ $(function(){
     function qCreate() {
         qArr = arrRandomize(qArr);
         for (index of qArr) {
-            aArr = arrRandomize(aArr), qDiv = $("<div>");
+            aArr = arrRandomize(aArr);
+            var qDiv = $("<div>");
             qDiv.attr("id", "qDiv").attr("class", "panel panel-primary").append(`<div class="question panel-heading"><h2>${index.question}</h2></div>`);
             for (property of aArr) {
                 qDiv.append(`<div class="panel-body answer" ><h3>${index[property]}</h3></div>`);
@@ -138,7 +139,8 @@ $(function(){
     }
 
     function countDown() {
-        timeActual--, percent = timeActual / time * 100;
+        timeActual--;
+        var percent = timeActual / time * 100;
         $(".progress-bar").css("width", String(percent + "%"));
         if (percent <= 33.34) {
             $(".progress-bar").removeClass('progress-bar-warning').addClass('progress-bar-danger');
@@ -160,7 +162,7 @@ $(function(){
     }
 
     function userStats() {
-        statsDiv = $("<div>"), correctReveal = `<div class="panel-body">Correct Answer:<br><span class="statsVar answerReveal">${qArr[qCount].answer1}</span></div>`;
+        var statsDiv = $("<div>"), correctReveal = `<div class="panel-body">Correct Answer:<br><span class="statsVar answerReveal">${qArr[qCount].answer1}</span></div>`;
         statsDiv.attr("id", "stats").attr("class", "panel");
         correctState ? statsDiv.attr("class", "panel panel-success").append('<div class="panel-heading"><h2>Correct!<h2></div>')
             : wrongState ? statsDiv.attr("class", "panel panel-danger").append('<div class="panel-heading"><h2>Wrong!<h2></div>').append(correctReveal)
