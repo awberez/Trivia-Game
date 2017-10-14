@@ -173,20 +173,7 @@ $(function(){
         $(".progress-bar").css("width", "100%").removeClass('progress-bar-success').removeClass('progress-bar-warning').removeClass('progress-bar-danger').addClass('progress-bar-primary');
         userStats();
         if (qCount > 0) {
-            timeActual = 3;
-            intervalId = setInterval(function() {
-                timeActual--;
-                if (timeActual == 0) {
-                    clearInterval(intervalId);
-                    correctState = false;
-                    wrongState = false;
-                    qCount--;
-                    $(".progress-bar").removeClass('progress-bar-primary').addClass('progress-bar-success');
-                    $("#qDisplay").html(divArr[qCount]).css("display", "none").fadeIn("fast");
-                    timeActual = time;                 
-                    intervalId = setInterval(countDown, 1000);
-                }
-            }, 1000);
+            setTimeout(qNext, 1000 * 3);
         }
     }
 
@@ -210,6 +197,17 @@ $(function(){
             statsDiv.append('<div class="panel-body">Questions Remaining: <span class="statsVar">' + qCount + '</span></div>');
         }
         $("#qDisplay").html(statsDiv).css("display", "none").fadeIn("fast");
+    }
+
+    function qNext() {
+        clearInterval(intervalId);
+        correctState = false;
+        wrongState = false;
+        qCount--;
+        $(".progress-bar").removeClass('progress-bar-primary').addClass('progress-bar-success');
+        $("#qDisplay").html(divArr[qCount]).css("display", "none").fadeIn("fast");
+        timeActual = time;                 
+        intervalId = setInterval(countDown, 1000);
     }
 
     function endGame() {
