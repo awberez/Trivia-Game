@@ -124,18 +124,13 @@ $(function(){
     }
 
     function qCreate() {
-        var randArr = [];
+        qArr = arrRandomize(qArr);
         for (i = 0; i < qArr.length; i++) {
-            randArr.push(i);
-        }
-        randArr = arrRandomize(randArr);
-        for (i = 0; i < randArr.length; i++) {
             aArr = arrRandomize(aArr);
             var qDiv = $("<div>");
-            qDiv.attr("id", "qDiv").data('answer', qArr[randArr[i]].answer1).attr("class", "panel panel-primary")
-                .append('<div class="question panel-heading"><h2>' + qArr[randArr[i]].question + '</h2></div>');
+            qDiv.attr("id", "qDiv").attr("class", "panel panel-primary").append('<div class="question panel-heading"><h2>' + qArr[i].question + '</h2></div>');
             for (k = 0; k < aArr.length; k++) {
-                qDiv.append('<div class="panel-body answer" ><h3>' + qArr[randArr[i]][aArr[k]] + '</h3></div>');
+                qDiv.append('<div class="panel-body answer" ><h3>' + qArr[i][aArr[k]] + '</h3></div>');
             }
             divArr.push(qDiv);
         }
@@ -196,7 +191,7 @@ $(function(){
     }
 
     function userStats() {
-        var correctReveal = '<div class="panel-body">Correct Answer:<br><span class="statsVar answerReveal">' + $("#qDiv").data("answer") + '</span></div>';
+        var correctReveal = '<div class="panel-body">Correct Answer:<br><span class="statsVar answerReveal">' + qArr[qCount].answer1 + '</span></div>';
         var statsDiv = $("<div>");
         statsDiv.attr("id", "stats").attr("class", "panel");
         if (correctState) {
@@ -245,7 +240,7 @@ $(function(){
     });
 
     $(document).on("click", ".answer", function () {
-        if ($(this).text() == $("#qDiv").data("answer")) {
+        if ($(this).text() == qArr[qCount].answer1) {
             correctState = true;
             userCorrect++;
         }
