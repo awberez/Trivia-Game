@@ -333,16 +333,16 @@ $(function(){
         startGame();
     });
 
-    $(document).on("click", ".correctAnswer", function () {
-        correctState = true;
-        userCorrect++;
+    $(document).on("click", ".answer", function () {
+        if ($(this).hasClass("correctAnswer")) {
+            correctState = true;
+            userCorrect++;
+        }
+        else {
+            wrongState = true;
+            userWrong++; 
+        }
         qTransition();
     });
 
-    $(document).on("click", ".wrongAnswer", function () {
-        wrongState = true;
-        userWrong++;
-        qTransition();
-    });
-  
 });
