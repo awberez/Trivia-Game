@@ -162,7 +162,7 @@ $(function(){
         else if (percent <= 66.67) {
             $(".progress-bar").removeClass('progress-bar-success').addClass('progress-bar-warning');
         }
-        if (timeActual == 0) {
+        if (!timeActual) {
             userMissed++;
             qTransition();
         }
@@ -172,8 +172,12 @@ $(function(){
         clearInterval(intervalId);
         $(".progress-bar").css("width", "100%").removeClass('progress-bar-success').removeClass('progress-bar-warning').removeClass('progress-bar-danger').addClass('progress-bar-primary');
         userStats();
-        if (qCount > 0) {
+        if (qCount) {
+            $("#stats").append('<div class="panel-body">Questions Remaining: <span class="statsVar">' + qCount + '</span></div>');
             setTimeout(qNext, 1000 * 3);
+        }
+        else {
+            setTimeout(endGame, 1000 * 3);
         }
     }
 
@@ -189,12 +193,6 @@ $(function(){
         }
         else {
             statsDiv.attr("class", "panel panel-warning").append('<div class="panel-heading"><h2>Missed!</h2></div>').append(correctReveal);
-        }
-        if (qCount == 0) {
-            setTimeout(endGame, 1000 * 3);
-        }
-        else {
-            statsDiv.append('<div class="panel-body">Questions Remaining: <span class="statsVar">' + qCount + '</span></div>');
         }
         $("#qDisplay").html(statsDiv).css("display", "none").fadeIn("fast");
     }
