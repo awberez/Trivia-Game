@@ -181,7 +181,7 @@ $(function(){
         answer2: {class: "wrongAnswer", content: "Yukon"},
         answer3: {class: "wrongAnswer", content: "Saskatchewan"},
         answer4: {class: "wrongAnswer", content: "Alberta"},},
-        
+
     ]; //trivia questions taken from: http://www.usefultrivia.com/miscellaneous_trivia/dinosaur_trivia_index.html
 
     var aArr =  ["answer1", "answer2", "answer3", "answer4"];
@@ -275,11 +275,8 @@ $(function(){
     function qTransition() {
         clearInterval(intervalId);
         $(".progress-bar").css("width", "100%").removeClass('progress-bar-success').removeClass('progress-bar-warning').removeClass('progress-bar-danger').addClass('progress-bar-primary');
-        if (qCount == 0) {
-            userStats();
-        }
-        else {
-            userStats();
+        userStats();
+        if (qCount > 0) {
             timeActual = 3;
             intervalId = setInterval(function() {
                 timeActual--;
