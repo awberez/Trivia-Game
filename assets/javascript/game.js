@@ -136,20 +136,24 @@ $(function(){
         }
     }
 
+    function qDisplay() {
+        correctState = false;
+        wrongState = false;
+        timeActual = time;
+        intervalId = setInterval(countDown, 1000);
+        $(".progress-bar").removeClass('progress-bar-primary').addClass('progress-bar-success');
+        $("#qDisplay").html(divArr[qCount]).css("display", "none").fadeIn("fast");
+    }
+
     function startGame() {
         $("#qStart").remove();
         divArr = [];
         qCount = 9;
         userCorrect = 0;
-        correctState = false;
         userWrong = 0;
-        wrongState = false;
         userMissed = 0;
         qCreate();
-        $(".progress-bar").removeClass('progress-bar-primary').addClass('progress-bar-success');
-        timeActual = time;
-        intervalId = setInterval(countDown, 1000);
-        $("#qDisplay").html(divArr[qCount]).css("display", "none").fadeIn("fast");
+        qDisplay();
     }
 
     function countDown() {
@@ -174,7 +178,8 @@ $(function(){
         userStats();
         if (qCount) {
             $("#stats").append('<div class="panel-body">Questions Remaining: <span class="statsVar">' + qCount + '</span></div>');
-            setTimeout(qNext, 1000 * 3);
+            qCount--;
+            setTimeout(qDisplay, 1000 * 3);
         }
         else {
             setTimeout(endGame, 1000 * 3);
@@ -195,17 +200,6 @@ $(function(){
             statsDiv.attr("class", "panel panel-warning").append('<div class="panel-heading"><h2>Missed!</h2></div>').append(correctReveal);
         }
         $("#qDisplay").html(statsDiv).css("display", "none").fadeIn("fast");
-    }
-
-    function qNext() {
-        clearInterval(intervalId);
-        correctState = false;
-        wrongState = false;
-        qCount--;
-        $(".progress-bar").removeClass('progress-bar-primary').addClass('progress-bar-success');
-        $("#qDisplay").html(divArr[qCount]).css("display", "none").fadeIn("fast");
-        timeActual = time;                 
-        intervalId = setInterval(countDown, 1000);
     }
 
     function endGame() {
