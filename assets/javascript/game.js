@@ -298,31 +298,33 @@ $(function(){
             statsDiv.attr("class", "panel panel-warning").append('<div class="panel-heading"><h2>Missed!</h2></div>').append(correctReveal);
         }
         if (qCount == 0) {
-            setTimeout(function(){
-                $("#stats").empty().css("display", "none").removeClass("panel-success").removeClass("panel-danger").removeClass("panel-warning").addClass("panel-info")
-                    .append('<div class="panel-heading"><h2>Final Score:<h2></div>')
-                    .append('<div class="panel-body statsCorrect">Correct: <span class="statsVar">' + userCorrect + '</span></div>')
-                    .append('<div class="panel-body statsWrong">Wrong: <span class="statsVar">' + userWrong + '</span></div>')
-                    .append('<div class="panel-body statsMissed">Missed: <span class="statsVar">' + userMissed + '</span></div>');
-                if (highScore < userCorrect) {
-                    highScore = userCorrect;
-                    var newHigh = true;
-                }
-                $("#stats").append('<div class="panel-body statsScore">High Score: <span class="statsVar">' + highScore + '</span></div>');
-                if (newHigh) {
-                    $(".statsScore").prepend('NEW ');
-                    if (highScore == 10) {
-                        $(".statsScore").append(' <i class="fa fa-trophy" aria-hidden="true"></i>');
-                    }
-                }
-                startButton("REPLAY", "#stats");
-                $("#stats").fadeIn("fast");
-                }, 1000 * 3);   
+            setTimeout(endGame, 1000 * 3);
         }
         else {
             statsDiv.append('<div class="panel-body">Questions Remaining: <span class="statsVar">' + qCount + '</span></div>');
         }
         $("#qDisplay").html(statsDiv).css("display", "none").fadeIn("fast");
+    }
+
+    function endGame() {
+        $("#stats").empty().css("display", "none").removeClass("panel-success").removeClass("panel-danger").removeClass("panel-warning").addClass("panel-info")
+            .append('<div class="panel-heading"><h2>Final Score:<h2></div>')
+            .append('<div class="panel-body statsCorrect">Correct: <span class="statsVar">' + userCorrect + '</span></div>')
+            .append('<div class="panel-body statsWrong">Wrong: <span class="statsVar">' + userWrong + '</span></div>')
+            .append('<div class="panel-body statsMissed">Missed: <span class="statsVar">' + userMissed + '</span></div>');
+        if (highScore < userCorrect) {
+            highScore = userCorrect;
+            var newHigh = true;
+        }
+        $("#stats").append('<div class="panel-body statsScore">High Score: <span class="statsVar">' + highScore + '</span></div>');
+        if (newHigh) {
+            $(".statsScore").prepend('NEW ');
+            if (highScore == 10) {
+                $(".statsScore").append(' <i class="fa fa-trophy" aria-hidden="true"></i>');
+            }
+        }
+        startButton("REPLAY", "#stats");
+        $("#stats").fadeIn("fast");
     }
 
     startButton("START", "#qStart");
