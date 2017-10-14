@@ -186,7 +186,6 @@ $(function(){
 
     var aArr =  ["answer1", "answer2", "answer3", "answer4"];
     var divArr;
-    var randArr;
     var qCount;
     var time = 30;
     var timeActual;
@@ -197,7 +196,6 @@ $(function(){
     var wrongState;
     var userMissed;
     var highScore = 0;
-    var newHigh;
 
     function startButton(text, where) {
         var btn = $("<button>");
@@ -216,6 +214,7 @@ $(function(){
     }
 
     function qCreate() {
+        var randArr = [];
         for (i = 0; i < qArr.length; i++) {
             randArr.push(i);
         }
@@ -234,14 +233,12 @@ $(function(){
     function startGame() {
         $("#qStart").remove();
         divArr = [];
-        randArr = [];
         qCount = 9;
         userCorrect = 0;
         correctState = false;
         userWrong = 0;
         wrongState = false;
         userMissed = 0;
-        newHigh = false;
         qCreate();
         $(".progress-bar").removeClass('progress-bar-primary').addClass('progress-bar-success');
         timeActual = time;
@@ -291,10 +288,10 @@ $(function(){
         var correctReveal = '<div class="panel-body">Correct Answer:<br><span class="statsVar answerReveal">' + $("#qDiv .correctAnswer").text() + '</span></div>';
         var statsDiv = $("<div>");
         statsDiv.attr("id", "stats").attr("class", "panel");
-        if (correctState == true) {
+        if (correctState) {
             statsDiv.attr("class", "panel panel-success").append('<div class="panel-heading"><h2>Correct!<h2></div>');
         }
-        else if (wrongState == true) {
+        else if (wrongState) {
             statsDiv.attr("class", "panel panel-danger").append('<div class="panel-heading"><h2>Wrong!<h2></div>').append(correctReveal);
         }
         else {
@@ -309,10 +306,10 @@ $(function(){
                     .append('<div class="panel-body statsMissed">Missed: <span class="statsVar">' + userMissed + '</span></div>');
                 if (highScore < userCorrect) {
                     highScore = userCorrect;
-                    newHigh = true;
+                    var newHigh = true;
                 }
                 $("#stats").append('<div class="panel-body statsScore">High Score: <span class="statsVar">' + highScore + '</span></div>');
-                if (newHigh == true) {
+                if (newHigh) {
                     $(".statsScore").prepend('NEW ');
                     if (highScore == 10) {
                         $(".statsScore").append(' <i class="fa fa-trophy" aria-hidden="true"></i>');
