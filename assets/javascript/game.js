@@ -129,7 +129,7 @@ $(function(){
         correctState = false, wrongState = false, timeActual = time, intervalId = setInterval(countDown, 1e3);
         $(".progress-bar").removeClass('progress-bar-primary').addClass('progress-bar-success');
         $("#qDisplay").html(divArr[qCount]).css("display", "none").fadeIn("fast");
-        location.href = "#time";
+        location.href = "#trivia-time";
     }
 
     function startGame() {
