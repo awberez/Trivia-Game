@@ -114,11 +114,11 @@ $(function(){
 
     function qCreate() {
         qArr = arrRandomize(qArr);
-        for (index of qArr) {
+        for (let index of qArr) {
             aArr = arrRandomize(aArr);
             var qDiv = $("<div>");
             qDiv.attr("id", "qDiv").attr("class", "panel panel-primary").append(`<div class="question panel-heading"><h2>${index.question}</h2></div>`);
-            for (answerIndex of aArr) {
+            for (let answerIndex of aArr) {
                 qDiv.append(`<div class="panel-body answer"><h3>${index.answer[answerIndex]}</h3></div>`);
             }
             divArr.push(qDiv);
