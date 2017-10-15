@@ -119,7 +119,7 @@ $(function(){
             var qDiv = $("<div>");
             qDiv.attr("id", "qDiv").attr("class", "panel panel-primary").append(`<div class="question panel-heading"><h2>${index.question}</h2></div>`);
             for (answerIndex of aArr) {
-                qDiv.append(`<div class="panel-body answer" ><h3>${index.answer[answerIndex]}</h3></div>`);
+                qDiv.append(`<div class="panel-body answer"><h3>${index.answer[answerIndex]}</h3></div>`);
             }
             divArr.push(qDiv);
         }
