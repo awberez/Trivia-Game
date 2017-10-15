@@ -3,98 +3,98 @@ $(function(){
     var qArr = [
     
         {question: 'What dinosaur name means "fast thief?"',
-        answer1: "Velociraptor", answer2: "Pteronodon", answer3: "Nanotyrannus", answer4: "Sinocalliopteryx"},
+        answer: ["Velociraptor", "Pteronodon", "Nanotyrannus", "Sinocalliopteryx"]},
 
         {question: "What dinosaur was, for many years, mistakenly called a Brontosaurus?",
-        answer1: "Apatosaurus", answer2: "Rigidosaurus", answer3: "Brachiosaurus", answer4: "Arcanosaurus"},
+        answer: ["Apatosaurus", "Rigidosaurus", "Brachiosaurus", "Arcanosaurus"]},
 
         {question: "Which dinosaur had fifteen horns?",
-        answer1: "Kosmoceratops", answer2: "Pachyrhinosaurus", answer3: "Stryacosaurus", answer4: "Diabloceratops"},
+        answer: ["Kosmoceratops", "Pachyrhinosaurus", "Stryacosaurus", "Diabloceratops"]},
 
         {question: "Which of the following dinosaurs was toothless?",
-        answer1: "Oviraptor", answer2: "Diplodocus", answer3: "Compsognathus", answer4: "Apatosaurus"},
+        answer: ["Oviraptor", "Diplodocus", "Compsognathus", "Apatosaurus"]},
 
         {question: "What close relative of the Velociraptor could grow up to 7 meters (20 feet) long and weighed almost a ton?",
-        answer1: "Utahraptor", answer2: "Nevadaraptor", answer3: "Ohioraptor", answer4: "Texasraptor"},
+        answer: ["Utahraptor", "Nevadaraptor", "Ohioraptor", "Texasraptor"]},
 
         {question: "What was the first dinosaur to be discovered?",
-        answer1: "Megalosaurus", answer2: "Brontosaurus", answer3: "Tyrannosaurus Rex", answer4: "Giganotosaurus"},
+        answer: ["Megalosaurus", "Brontosaurus", "Tyrannosaurus Rex", "Giganotosaurus"]},
 
         {question: "What dinosaur is believed to have weighed up to 110 tons?",
-        answer1: "Argentinosaurus", answer2: "Perusaurus", answer3: "Columbiosaurus", answer4: "Brazilosaurus"},
+        answer: ["Argentinosaurus", "Perusaurus", "Columbiosaurus", "Brazilosaurus"]},
 
         {question: "During what geologic period did dinosaurs first appear?",
-        answer1: "Triassic", answer2: "Cretaceous", answer3: "Cambrian", answer4: "Jurassic"},
+        answer: ["Triassic", "Cretaceous", "Cambrian", "Jurassic"]},
 
         {question: "Which of these dinosaurs was a meat eater?",
-        answer1: "Dromaeosaurus", answer2: "Stegosaurus", answer3: "Triceratops", answer4: "Angulomastacator"},
+        answer: ["Dromaeosaurus", "Stegosaurus","Triceratops", "Angulomastacator"]},
 
         {question: "What is the nickname of the most complete T-rex specimen ever discovered?",
-        answer1: "Sue", answer2: "May", answer3: "Eve", answer4: "Ann"},
+        answer: ["Sue", "May", "Eve", "Ann"]},
 
         {question: "Which extinction event wiped out the dinosaurs?",
-        answer1: "Cretaceous-Paleogene", answer2: "Ordovician-Silurian", answer3: "Permian", answer4: "Triassic-Jurassic"},
+        answer: ["Cretaceous-Paleogene", "Ordovician-Silurian", "Permian", "Triassic-Jurassic"]},
 
         {question: "What is the official state dinosaur of Colorado?",
-        answer1: "Stegosaurus", answer2: "Allosaurus", answer3: "Triceratops", answer4: "Velociraptor"},
+        answer: ["Stegosaurus", "Allosaurus", "Triceratops", "Velociraptor"]},
 
         {question: "What was the first non-carnivorous theropod fossil to be discovered?",
-        answer1: "Therizinosaur", answer2: "Baronyx", answer3: "Deinonychus", answer4: "Tarbosaurus"},
+        answer: ["Therizinosaur", "Baronyx", "Deinonychus", "Tarbosaurus"]},
 
         {question: "In what country were dinosaur fossils thought to be dragon bones?",
-        answer1: "China", answer2: "South Africa", answer3: "Brazil", answer4: "Saudi Arabia"},
+        answer: ["China", "South Africa", "Brazil", "Saudi Arabia"]},
 
         {question: "How many wings did a Microraptor have?",
-        answer1: "Four", answer2: "Two", answer3: "Six", answer4: "Three"},
+        answer: ["Four", "Two", "Six", "Three"]},
 
         {question: "Which of the following dinosaurs was the smallest?",
-        answer1: "Compsognathus", answer2: "Raptor", answer3: "Troodon", answer4: "Dilophosaurus"},
+        answer: ["Compsognathus", "Raptor", "Troodon", "Dilophosaurus"]},
 
         {question: "What dinosaur fossil was originally mistaken for a type of bison?",
-        answer1: "Triceratops", answer2: "Buffalosaurus", answer3: "Allosaurus", answer4: "Stegosaurus"},
+        answer: ["Triceratops", "Buffalosaurus", "Allosaurus", "Stegosaurus"]},
 
         {question: "What were the direct ancestors of the dinosaurs?",
-        answer1: "Archosaurs", answer2: "Eukaryotes", answer3: "Sapheosaurs", answer4: "Silesaurs"},
+        answer: ["Archosaurs", "Eukaryotes", "Sapheosaurs", "Silesaurs"]},
 
         {question: "What was the lifespan of a T. rex?",
-        answer1: "20-30 years", answer2: "100-120 years", answer3: "10-15 years", answer4: "50-60 years"},
+        answer: ["20-30 years", "100-120 years", "10-15 years", "50-60 years"]},
 
         {question: "Which dinosaur had the smallest brain for its body size?",
-        answer1: "Stegosaurus", answer2: "Tyrannosaurus rex", answer3: "Triceratops", answer4: "Brachiosaurus"},
+        answer: ["Stegosaurus", "Tyrannosaurus rex", "Triceratops", "Brachiosaurus"]},
 
         {question: "The meteor that many scientists believe killed the dinosaurs struck in what modern-day country?",
-        answer1: "Mexico", answer2: "Australia", answer3: "United States", answer4: "South Africa"},
+        answer: ["Mexico", "Australia", "United States", "South Africa"]},
 
         {question: 'What dinosaur name means "covered lizard?"',
-        answer1: "Stegosaurus", answer2: "Triceratops", answer3: "Dimetrodon", answer4: "Ankylosaurus"},
+        answer: ["Stegosaurus", "Triceratops", "Dimetrodon", "Ankylosaurus"]},
 
         {question: "How many claws did a Velociraptor have on each hand?",
-        answer1: "Three", answer2: "One", answer3: "Four", answer4: "Two"},
+        answer: ["Three", "One", "Four", "Two"]},
 
         {question: 'What does "dinosaur" mean?',
-        answer1: "Terrible Lizard", answer2: "Hungry Lizard", answer3: "Killer Lizard", answer4: "Evil Lizard"},
+        answer: ["Terrible Lizard", "Hungry Lizard", "Killer Lizard", "Evil Lizard"]},
 
         {question: "At the beginning of the Triassic period, how many continents were there?",
-        answer1: "One", answer2: "Three", answer3: "Seven", answer4: "Two"},
+        answer: ["One", "Three", "Seven", "Two"]},
 
         {question: "How are the two groups of dinosaurs differentiated?",
-        answer1: "Hip Bones", answer2: "Eating Habits", answer3: "Number of Claws", answer4: "Method of Reproduction"},
+        answer: ["Hip Bones", "Eating Habits", "Number of Claws", "Method of Reproduction"]},
 
         {question: "How many fossils are necessary to identify a new dinosaur species?",
-        answer1: "One", answer2: "Five", answer3: "Two", answer4: "Seven"},
+        answer: ["One", "Five", "Two", "Seven"]},
 
         {question: "Who discovered the first fossilized dinosaur eggs?",
-        answer1: "Jean-Jacques Poech", answer2: "Mary Anning", answer3: "Gideon Mantell", answer4: "Roy Chapman Andrews"},
+        answer: ["Jean-Jacques Poech", "Mary Anning", "Gideon Mantell", "Roy Chapman Andrews"]},
 
         {question: "Which continents have dinosaur fossils been found on?",
-        answer1: "All Seven Continents", answer2: "North America & South America", answer3: "Asia, Europe, & Africa", answer4: "Africa, North America, & Asia"},
+        answer: ["All Seven Continents", "North America & South America", "Asia, Europe, & Africa", "Africa, North America, & Asia"]},
 
         {question: "Where were the oldest dinosaur fossils in Canada found?",
-        answer1: "Nova Scotia", answer2: "Yukon", answer3: "Saskatchewan", answer4: "Alberta"},
+        answer: ["Nova Scotia", "Yukon", "Saskatchewan", "Alberta"]},
 
     ], //trivia questions taken from: http://www.usefultrivia.com/miscellaneous_trivia/dinosaur_trivia_index.html
 
-    aArr = ["answer1", "answer2", "answer3", "answer4"], time = 30, highScore = 0,
+    aArr = [0, 1, 2, 3], time = 30, highScore = 0,
     divArr, qCount, timeActual, intervalId, userCorrect, userWrong, correctState, wrongState, userMissed;
     
     function startButton(text, where) {
@@ -118,8 +118,8 @@ $(function(){
             aArr = arrRandomize(aArr);
             var qDiv = $("<div>");
             qDiv.attr("id", "qDiv").attr("class", "panel panel-primary").append(`<div class="question panel-heading"><h2>${index.question}</h2></div>`);
-            for (property of aArr) {
-                qDiv.append(`<div class="panel-body answer" ><h3>${index[property]}</h3></div>`);
+            for (answerIndex of aArr) {
+                qDiv.append(`<div class="panel-body answer" ><h3>${index.answer[answerIndex]}</h3></div>`);
             }
             divArr.push(qDiv);
         }
@@ -162,10 +162,12 @@ $(function(){
     }
 
     function userStats() {
-        var statsDiv = $("<div>"), correctReveal = `<div class="panel-body">Correct Answer:<br><span class="statsVar answerReveal">${qArr[qCount].answer1}</span></div>`;
+        var statsDiv = $("<div>"), correctReveal = `<div class="panel-body">Correct Answer:<br><span class="statsVar answerReveal">${qArr[qCount].answer[0]}</span></div>`;
         statsDiv.attr("id", "stats").attr("class", "panel");
-        correctState ? statsDiv.attr("class", "panel panel-success").append('<div class="panel-heading"><h2>Correct!<h2></div>')
-            : wrongState ? statsDiv.attr("class", "panel panel-danger").append('<div class="panel-heading"><h2>Wrong!<h2></div>').append(correctReveal)
+        correctState 
+            ? statsDiv.attr("class", "panel panel-success").append('<div class="panel-heading"><h2>Correct!<h2></div>')
+            : wrongState 
+                ? statsDiv.attr("class", "panel panel-danger").append('<div class="panel-heading"><h2>Wrong!<h2></div>').append(correctReveal)
                 : statsDiv.attr("class", "panel panel-warning").append('<div class="panel-heading"><h2>Missed!</h2></div>').append(correctReveal);
         $("#qDisplay").html(statsDiv).css("display", "none").fadeIn("fast");
     }
@@ -197,7 +199,7 @@ $(function(){
     });
 
     $(document).on("click", ".answer", function () {
-        $(this).text() == qArr[qCount].answer1 ?  (correctState = true, userCorrect++) : (wrongState = true, userWrong++);
+        $(this).text() == qArr[qCount].answer[0] ? (correctState = true, userCorrect++) : (wrongState = true, userWrong++);
         qTransition();
     });
 
