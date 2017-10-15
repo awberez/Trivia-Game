@@ -179,7 +179,8 @@ $(function(){
             .append(`<div class="panel-body statsWrong">Wrong: <span class="statsVar">${userWrong}</span></div>`)
             .append(`<div class="panel-body statsMissed">Missed: <span class="statsVar">${userMissed}</span></div>`);
         if (highScore < userCorrect) {
-            highScore = userCorrect, newHigh = true;
+            highScore = userCorrect;
+            var newHigh = true;
         }
         $("#stats").append(`<div class="panel-body statsScore">High Score: <span class="statsVar">${highScore}</span></div>`);
         if (newHigh) {
