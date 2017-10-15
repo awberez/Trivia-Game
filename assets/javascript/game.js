@@ -141,7 +141,7 @@ $(function(){
     function countDown() {
         timeActual--;
         var percent = timeActual / time * 100;
-        $(".progress-bar").css("width", String(percent + "%"));
+        $(".progress-bar").css("width", `${percent}%`);
         if (percent <= 33.34) {
             $(".progress-bar").removeClass('progress-bar-warning').addClass('progress-bar-danger');
         }
