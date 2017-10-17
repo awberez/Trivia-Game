@@ -95,7 +95,7 @@ $(function(){
     ], //trivia questions taken from: http://www.usefultrivia.com/miscellaneous_trivia/dinosaur_trivia_index.html
 
     aArr = [0, 1, 2, 3], time = 30, highScore = 0,
-    divArr, qCount, timeActual, intervalId, userCorrect, userWrong, correctState, wrongState, userMissed;
+    qCount, timeActual, intervalId, userCorrect, userWrong, correctState, wrongState, userMissed;
     
     function startButton(text, where) {
         var btn = $("<button>");
@@ -112,31 +112,21 @@ $(function(){
         return tempArr;
     }
 
-    function qCreate() {
-        qArr = arrRandomize(qArr);
-        for (let index of qArr) {
-            aArr = arrRandomize(aArr);
-            var qDiv = $("<div>");
-            qDiv.attr("id", "qDiv").attr("class", "panel panel-primary").append(`<div class="question panel-heading"><h2>${index.question}</h2></div>`);
-            for (let answerIndex of aArr) {
-                qDiv.append(`<div class="panel-body answer"><h3>${index.answer[answerIndex]}</h3></div>`);
-            }
-            divArr.push(qDiv);
+    function qCreate(q) {
+        aArr = arrRandomize(aArr);
+        var qDiv = $("<div>");
+        qDiv.attr("id", "qDiv").attr("class", "panel panel-primary").append(`<div class="question panel-heading"><h2>${qArr[q].question}</h2></div>`);
+        for (let index of aArr) {
+            qDiv.append(`<div class="panel-body answer"><h3>${qArr[q].answer[index]}</h3></div>`);
         }
+        return qDiv;
     }
 
     function qDisplay() {
         correctState = false, wrongState = false, timeActual = time, intervalId = setInterval(countDown, 1e3);
         $(".progress-bar").removeClass('progress-bar-primary').addClass('progress-bar-success');
-        $("#qDisplay").html(divArr[qCount]).css("display", "none").fadeIn("fast");
+        $("#qDisplay").html(qCreate(qCount)).css("display", "none").fadeIn("fast");
         location.href = "#trivia-time";
-    }
-
-    function startGame() {
-        $("#qStart").remove();
-        divArr = [], qCount = 9, userCorrect = 0, userWrong = 0, userMissed = 0;
-        qCreate();
-        qDisplay();
     }
 
     function countDown() {
@@ -197,7 +187,9 @@ $(function(){
     startButton("START", "#qStart");
 
     $(document).on("click", ".btn", function () {
-        startGame();
+        $("#qStart").remove();
+        qCount = 9, userCorrect = 0, userWrong = 0, userMissed = 0, qArr = arrRandomize(qArr);
+        qDisplay();
     });
 
     $(document).on("click", ".answer", function () {
