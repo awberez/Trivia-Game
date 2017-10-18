@@ -63,8 +63,7 @@ $(function(){
            answer: ["Nova Scotia", "Yukon", "Saskatchewan", "Alberta"]},
     ], //trivia questions taken from: http://www.usefultrivia.com/miscellaneous_trivia/dinosaur_trivia_index.html
 
-    aArr = [0, 1, 2, 3], time = 30, highScore = 0,
-    qCount, timeActual, intervalId, userCorrect, userWrong, correctState, wrongState, userMissed;
+    aArr = [0, 1, 2, 3], highScore = 0, time = 30, timeActual, timeInterval, qCount, correctState, wrongState, userCorrect, userWrong, userMissed;
     
     function startButton(text, where) {
         let btn = $("<button>");
@@ -92,7 +91,7 @@ $(function(){
     }
 
     function qDisplay() {
-        correctState = false, wrongState = false, timeActual = time, intervalId = setInterval(countDown, 1e3);
+        correctState = false, wrongState = false, timeActual = time, timeInterval = setInterval(countDown, 1e3);
         $(".progress-bar").removeClass("progress-bar-primary").addClass("progress-bar-success");
         $("#qDisplay").html(qCreate(qCount)).css("display", "none").fadeIn("fast");
         location.href = "#trivia-time";
@@ -115,7 +114,7 @@ $(function(){
     }
 
     function qTransition() {
-        clearInterval(intervalId);
+        clearInterval(timeInterval);
         $(".progress-bar").css("width", "100%").attr("class", "progress-bar progress-bar-primary");
         userStats();
         qCount ? ($("#stats").append(`<div class="panel-body">Questions Remaining: <span class="statsVar">${qCount}</span></div>`), qCount--, setTimeout(qDisplay, 1e3 * 3)) : setTimeout(endGame, 1e3 * 3);
